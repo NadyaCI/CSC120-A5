@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 //Sets up a car of the train
 public class Car {
-    int maxCapacity;
+    private int maxCapacity;
     private ArrayList<Passenger> passengersOnboard;
     
     // Car constructor
@@ -25,6 +25,9 @@ public class Car {
     public void addPassenger(Passenger p) {
         if (this.maxCapacity == this.passengersOnboard.size()){
             throw new RuntimeException("This car is at max capacity, no more passengers can be let on.");
+        }
+        else if (this.passengersOnboard.contains(p)){
+            throw new RuntimeException("This passenger is already on board.");
         }
         else {
             this.passengersOnboard.add(p);
@@ -50,8 +53,7 @@ public class Car {
         else{
             System.out.println("The passengers in this car are: ");
             for (int i=0; i<this.passengersOnboard.size(); i++){
-                Passenger passenger = this.passengersOnboard.get(i);
-                System.out.println(passenger.name());
+                System.out.println(this.passengersOnboard.get(i).name());
             }
         }
     }

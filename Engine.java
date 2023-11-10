@@ -1,14 +1,26 @@
 // Sets up our engine
 public class Engine {
     private FuelType fuelType;
-    double currentFuel;
-    double maxFuel;
+    private double currentFuel;
+    private double maxFuel;
 
     // Engine constructor
     public Engine(FuelType fuelType, double currentFuel) {
         this.fuelType = fuelType;
         this.currentFuel = currentFuel;
-        this.maxFuel = 100.0;
+        this.maxFuel = currentFuel;
+    }
+
+    public FuelType getFuelType(){
+        return this.fuelType;
+    }
+
+    public double getCurrentFuel(){
+        return this.currentFuel;
+    }
+
+    public double getMaxFuel(){
+        return this.maxFuel;
     }
 
     // Refuels engine to its maximum
