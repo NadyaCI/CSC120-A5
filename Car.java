@@ -4,24 +4,31 @@ public class Car {
     private int maxCapacity;
     private ArrayList<Passenger> passengersOnboard;
     
-    // Car constructor
+    /** Constructor */
     public Car(int maxCapacity) {
         this.maxCapacity = maxCapacity;
+        this.passengersOnboard = new ArrayList<Passenger>();
     }
 
-    // Returns maximum capacity
+    /** Gives max capacity of car
+     * @return max capacity of car
+     */
     public int getCapacity(){
         System.out.println("The maximum capacity of this car is " + maxCapacity);
         return this.maxCapacity;
     }
 
-    // Returns how many seats are left
+    /** Gives # of remaining seats
+     * @return # of remaining seats in car
+     */
     public int seatsRemaining() {
         System.out.println("hyhy");
         return (this.maxCapacity-this.passengersOnboard.size());
     }
 
-    // Adds a passenger to the car
+    /** Adds a passenger to car
+     * @param p passenger being added to car
+     */
     public void addPassenger(Passenger p) {
         if (this.maxCapacity == this.passengersOnboard.size()){
             throw new RuntimeException("This car is at max capacity, no more passengers can be let on.");
@@ -34,18 +41,20 @@ public class Car {
         }
     }
 
-    // Removes a passenger from the car
+    /** Removes a passenger from car
+     * @param p passenger being removed from car
+     */
     public void removePassenger(Passenger p) {
         if (this.passengersOnboard.contains(p)) {
             this.passengersOnboard.remove(p);
-            System.out.println("The passenger is no longer on board."); // ADD WAY TO SPECIFY NAME
+            System.out.println("The passenger " + p.name() + " is no longer on board.");
         }
         else {
             throw new RuntimeException("This passenger was not on board.");
         }
     }
 
-    // Lists all passengers in the car
+    /** Prints formatted list of passengers in car */
     public void printManifest(){
         if (this.passengersOnboard.size() == 0){
             System.out.println("This car is empty.");
